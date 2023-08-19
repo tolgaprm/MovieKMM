@@ -29,7 +29,7 @@ struct HomeView: View {
                     }
                 }.padding(.horizontal, 12)
                     .navigationDestination(for: Movie.self) { movie in
-                        // Detail Screen
+                        DetailView(movie: movie)
                     }
             }.navigationTitle("Movies")
         }.task {
