@@ -14,6 +14,8 @@ import com.prmto.moviekmm.android.common.Detail
 import com.prmto.moviekmm.android.common.Home
 import com.prmto.moviekmm.android.common.MovieAppBar
 import com.prmto.moviekmm.android.common.movieDestinations
+import com.prmto.moviekmm.android.detail.DetailScreen
+import com.prmto.moviekmm.android.detail.DetailViewModel
 import com.prmto.moviekmm.android.home.HomeScreen
 import com.prmto.moviekmm.android.home.HomeViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -56,7 +58,10 @@ fun MovieApp() {
             }
 
             composable(Detail.routeWithArgs, arguments = Detail.arguments) {
-                val movieId = it.arguments?.getInt("movieId") ?: 0
+                val detailViewModel: DetailViewModel = koinViewModel()
+                DetailScreen(
+                    uiState = detailViewModel.uiState
+                )
             }
         }
     }
