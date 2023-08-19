@@ -24,7 +24,7 @@ internal abstract class KtorApi {
     fun HttpRequestBuilder.pathUrl(path: String) {
         url {
             takeFrom(Constants.BASE_URL)
-            path(path)
+            path("3", path)
             parameter("api_key", API_KEY)
         }
     }
